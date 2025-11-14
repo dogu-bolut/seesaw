@@ -1,0 +1,55 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#container{
+    height: 400px;
+    width: 600px;
+    background-color: #d0d0d0;
+    border-radius: 10px;
+}
+
+#seesaw-container{
+    position: relative;
+    height: 200px;
+    width: 400px;
+    background-color: #ddd;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+#plank{
+    position: absolute;
+    height: 20px;
+    width: 400px;
+    left: 0;
+    top: 90px;
+    background-color: brown;
+}
+
+.object {
+    display: flex;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: -20px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.display-item{
+    display: inline-block;
+    font-size: 18px;
+    background-color: #fff;
+    color: #333;
+    margin: 0 40px;
+    padding: 10px 10px;
+    border-radius: 8px;
+}
