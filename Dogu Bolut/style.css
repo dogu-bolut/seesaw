@@ -33,23 +33,46 @@ body{
 .object {
     display: flex;
     position: absolute;
-    height: 20px;
-    width: 20px;
-    top: -20px;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
 }
 
+.display-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .display-item{
-    display: inline-block;
     font-size: 18px;
+    margin: 10px;
+    padding: 5px;
     background-color: #fff;
     color: #333;
-    margin: 0 40px;
-    padding: 10px 10px;
     border-radius: 8px;
+}
+
+#reset-button{
+    display: block;
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 50px auto;
+    padding: 10px 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#reset-button:hover{
+    background-color: #888;
+    color: #fff;
+    transform: scale(1.05);
 }
