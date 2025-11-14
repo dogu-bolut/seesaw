@@ -8,15 +8,16 @@ const resetButton = document.getElementById('reset-button');
 let objects = [];
 const halfWidth = 200;
 
-seesawContainer.addEventListener('click', (e) => {
-    const rect = seesawContainer.getBoundingClientRect();
-    const position = e.clientX - rect.left;
+plank.addEventListener('click', (e) => {
+    if(e.target !== plank) return;
+    const position = e.offsetX;
     const weight = Math.floor(Math.random() * 10) + 1;
     const color = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
     const object = {position, weight, color};
     objects.push(object);
     createObject(object);
     updateSeesaw();
+    localStorage.setItem('seesaw', JSON.stringify(objects));
 });
 
 function createObject(obj){
@@ -59,6 +60,7 @@ function updateSeesaw(){
 }
 
 resetButton.addEventListener('click', () => {
+    localStorage.removeItem('seesaw');
     objects = [];
     plank.innerHTML = '';
     plank.style.transform = 'rotate(0deg)';
@@ -68,5 +70,11 @@ resetButton.addEventListener('click', () => {
 function updateDisplays(left, right, angle){
     leftWeight.innerText = `Left: ${left} kg`;
     rightWeight.innerText = `Right: ${right} kg`;
-    tiltAngle.innerText = `Tilt: ${angle} deg`;
+    tiltAngle.innerText = `Tilt: ${angle} °`;
+}
+
+if (localStorage.getItem('seesaw')) {
+    objects = JSON.parse(localStorage.getItem('seesaw'));
+    objects.forEach(obj => createObject(obj));
+    updateSeesaw();
 }
